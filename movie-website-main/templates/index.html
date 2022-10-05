@@ -1,0 +1,218 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Movie Website</title>
+
+    <link rel="canonical" href="https://getbootstrap.comhttps://getbootstrap.com/docs/5.2/examples/album/">
+
+    
+
+    
+
+<link href="https://getbootstrap.com/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    
+<header>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a href="/" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Movie-Website</strong>
+      </a>
+      <a class="navbar-toggler" href="/logout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+          <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Search any movie</h1>
+        <div class="mb-3">
+          <input type="text" class="form-control" id="movie_name" placeholder="Movie Name">
+        </div>
+          <a href="#" class="btn btn-primary my-2" id="search" onclick="search_movie(event, document.getElementById('movie_name').value)">Search</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="movie_container">
+        
+      </div>
+    </div>
+  </div>
+
+  {% if movies %}
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <h2>Saved Playlists</h2><br>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for movie in movies %}
+        <div class="col">
+          <div class="card shadow-sm">
+            {% if movie.poster %}
+            <img height="225" width="100%" style="object-fit: cover;" src="{{movie.poster}}" />
+            {% else %}
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image not available" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image not available</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Image not available</text></svg>
+            {% endif %}
+            <div class="card-body">
+              <p class="card-text">{{movie.title}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-secondary" href="/details-saved/{{movie.id}}/{{movie.imdbid}}">View Details</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="/delete/{{movie.id}}">Remove</a>
+                </div>
+                <small class="text-muted">{{movie.year}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        
+      </div>
+
+    </div>
+  </div>
+  {% endif %}
+
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    {% if playlist.public %}
+    <p class="mb-1">Do you want to make your playlist private? <a href="/make-private-playlist">Yes!</a></p>
+    <p class="mb-0">Your public playlist Url - <a target="_blank" href="/public-playlist/{{request.user.id}}">Playlist</a></p>
+    {% else %}
+    <p class="mb-1">Do you want to make your playlist public? <a href="/make-public-playlist">Yes!</a></p>
+    <p class="mb-0"></p>
+    {% endif %}
+  </div>
+</footer>
+
+
+
+    <script src="https://getbootstrap.com/docs/5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      function search_movie(e, movie_name){
+        e.preventDefault()
+        $.get(`https://omdbapi.com/?apikey=b4e2b015&s=${movie_name}`, function(response) {
+          document.getElementById('movie_container').innerHTML = ""
+          search = response.Search
+          for(var i=0; i<search.length; i++){
+            movie = search[i]
+            console.log(movie)
+            if (movie.Poster == "N/A") {
+              poster = `
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image not available" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image not available</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Image not available</text></svg>`
+            } else {
+              poster = `<img height="225" width="100%" style="object-fit: cover;" src="${movie.Poster}" />`
+            }
+            document.getElementById('movie_container').innerHTML += `
+              <div class="col">
+                <div class="card shadow-sm">
+                  ${poster}
+
+                  <div class="card-body">
+                    <p class="card-text">${movie.Title}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a class="btn btn-sm btn-outline-secondary" href="/details/${movie.imdbID}">Details</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="/add-to-playlist/?id=${movie.imdbID}&poster=${movie.Poster}&year=${movie.Year}&title=${movie.Title}">Add To Playlist</a>
+                      </div>
+                      <small class="text-muted">Year: ${movie.Year}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `
+          }
+        })
+      }
+    </script>
+
+      
+  </body>
+</html>
